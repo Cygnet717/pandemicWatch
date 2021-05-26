@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route, Link} from 'react-router-dom';
+import AllStates from './components/AllStates/AllStates';
+import LandingPage from './components/LandingPage/LandingPage.js';
+import SingleState from './components/SingleState/SingleState';
+import CountryVaccPie from './components/CountryVaccPie/CountryVaccPie';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className='App'>
+      <div>
+        <nav>
+          <Link className="headerLink" to="/covid_project">Home</Link>
+          <Link className="headerLink" to="/allstates">All States</Link>
+          <Link className="headerLink" to="/singlestate">Single State</Link>
+          <Link className="headerLink" to="/countryvaccinations">USA Vaccinations</Link>
+        </nav>
+        <div>
+          <Route exact path={"/"} component={LandingPage}/>
+          <Route exact path={"/covid_project"} component={LandingPage}/>
+          <Route path={"/allstates"} component={AllStates} />
+          <Route path={"/singlestate"} component={SingleState}/>
+          <Route path={"/countryvaccinations"} component={CountryVaccPie}/>
+        </div>
+      </div>
+    </main>
   );
 }
 

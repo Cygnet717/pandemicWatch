@@ -1,0 +1,36 @@
+.allStatesTable{
+    padding-top: 100px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.allStatesTable td, .allStatesTable th {
+    border: 1px solid #ddd;
+    padding: 4px;
+}
+
+.allStatesTable tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.allStatesTable tr:hover {
+    background-color: #ddd;
+}
+
+.allStatesTable th {
+    position: sticky;
+    top: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #43a195;
+    color: white;
+}
+
+@media screen and (hover:hover) {
+    .allStatesTable{
+        width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

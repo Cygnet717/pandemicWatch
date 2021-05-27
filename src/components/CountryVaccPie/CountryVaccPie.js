@@ -49,7 +49,7 @@ export default class CountryVaccPie extends Component {
         if(error){
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded){
-            return <div> Loading ...</div>;
+            return <div className="loading"> Loading ...</div>;
         } else {
             let vaccInit = vaccinationsInitiated - vaccinationsCompleted; //amt with at least one shot minus the finished ones
             let vaccComp = vaccinationsCompleted; //amt fully vaccinated

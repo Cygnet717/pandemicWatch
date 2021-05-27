@@ -1,0 +1,37 @@
+.mainDiv{
+    padding: 100px 20px 20px 20px;
+    
+}
+
+.stateSelectionForm{
+    padding: 15px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_dropdowns{
+    min-width: 25vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.form_dropdowns select{
+    width: 80%;
+}
+
+.submitBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (hover: hover) {
+    .description{
+        width: 60%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

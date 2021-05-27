@@ -4,17 +4,13 @@ import AllStates from './components/AllStates/AllStates';
 import LandingPage from './components/LandingPage/LandingPage.js';
 import SingleState from './components/SingleState/SingleState';
 import CountryVaccPie from './components/CountryVaccPie/CountryVaccPie';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <main className='App'>
       <div>
-        <nav>
-          <Link className="headerLink" to="/covid_project">Home</Link>
-          <Link className="headerLink" to="/allstates">All States</Link>
-          <Link className="headerLink" to="/singlestate">Single State</Link>
-          <Link className="headerLink" to="/countryvaccinations">USA Vaccinations</Link>
-        </nav>
+        <Header/>
         <div>
           <Route exact path={"/"} component={LandingPage}/>
           <Route exact path={"/covid_project"} component={LandingPage}/>

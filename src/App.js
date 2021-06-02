@@ -11,7 +11,7 @@ function App() {
     <main className='App'>
       <Header/>
       <Route exact path={"/"} component={LandingPage}/>
-      <Route exact path={"/covid_project"} component={LandingPage}/>
+      <Route exact path={"/pandemicwatch"} component={LandingPage}/>
       <Route path={"/allstates"} component={AllStates} />        <Route path={"/singlestate"} component={SingleState}/>
       <Route path={"/countryvaccinations"} component={CountryVaccPie}/>
     </main>

@@ -8,11 +8,13 @@ export default class SingleState extends Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state ={
-            value: 'default',
+            stateValue: 'default',
+            stateName: 'default',
             showStateGraph: false,
             error: null,
             isLoaded: false,
-            data: [],
+            timeSeriesData: [],
+            totalDeaths: 0
         }
     }
 
@@ -21,11 +23,17 @@ export default class SingleState extends Component {
     handleSubmit=(event)=> {
         event.preventDefault();
         const data = new FormData(event.target);
+        for(let i=0; i<this.listStates.length; i++){
+            if(data.get('state') === this.listStates[i].abv){
+                this.setState({stateName: this.listStates[i].state})
+            }
+        };
+
         this.SearchSingleStateData(data.get('state'));
     }
 
     handleChange = (event)=>{
-        this.setState({value: event.target.value})
+        this.setState({stateValue: event.target.value})
     }
    
     SearchSingleStateData(state) {
@@ -37,7 +45,8 @@ export default class SingleState extends Component {
                     this.setState({
                         showStateGraph: true,
                         isLoaded: true,
-                        data: result.actualsTimeseries
+                        timeSeriesData: result.actualsTimeseries,
+                        totalDeaths: result.actuals.deaths,
                     });
                 },
                 (error) => {
@@ -49,15 +58,14 @@ export default class SingleState extends Component {
             )
     }
     render() {
-        const { value, data, showStateGraph, selectedState, error, isLoaded } =this.state;
-
+        const { stateValue, timeSeriesData, stateName, totalDeaths, showStateGraph, error, isLoaded } =this.state;
         return(
             <div className='mainDiv'>
                 <div className='description'>Select your State to get daily new case numbers since the beginning of the pandemic</div>
                 <form className='stateSelectionForm' onSubmit={this.handleSubmit}>
                     <div className='form_dropdowns'>
                         <label htmlFor='state'>State</label>
-                        <select name='state' id='state' value={value} onChange={this.handleChange}>
+                        <select name='state' id='state' value={stateValue} onChange={this.handleChange}>
                             <option vlaue='default'>Select a State</option>
                             {this.listStates.map(i => {
                                 return <option id={i.state} name='state' key={uuidv4()} value={i.abv} >{i.state}</option>
@@ -69,8 +77,9 @@ export default class SingleState extends Component {
                 <div>
                     {showStateGraph? 
                         <SingleStateGraph 
-                            data={data} 
-                            selectedState={selectedState}
+                            timeSeriesData={timeSeriesData} 
+                            totalDeaths={totalDeaths}
+                            selectedState={stateName}
                             error={error}
                             isLoaded={isLoaded}
                         />: <div></div>}

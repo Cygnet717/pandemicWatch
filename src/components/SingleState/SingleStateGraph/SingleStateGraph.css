@@ -5,6 +5,16 @@
     width: 375px;
 }
 
+h3 {
+    width: fit-content;
+}
+
+.stateGraphHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @media screen and (hover: hover) {
     .fullGraph {
         margin-left: auto;

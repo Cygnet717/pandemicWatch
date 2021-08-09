@@ -18,6 +18,8 @@ export default class SingleStateGraph extends Component {
     }
 
     render() {
+    console.log(this.props)
+
         if(this.state.error){
             return <div>Error: {this.state.error.message}</div>;
         } else if (!this.state.isLoaded){
@@ -26,7 +28,10 @@ export default class SingleStateGraph extends Component {
             let viewPortWidth = window.innerWidth;
             return (
                 <div className='fullGraph'>
-                    <h3>Historical Daily New Cases for {this.props.selectedState}</h3>
+                    <div className='stateGraphHeader'>
+                        <h3>Historical Daily New Cases for {this.props.selectedState}</h3>
+                        <div className='totalDeaths'>{this.props.totalDeaths} total deaths in {this.props.selectedState}</div>
+                    </div>
                     <VictoryChart 
                         width={viewPortWidth <= 1000? viewPortWidth: 1000}
                         height={300}
@@ -57,7 +62,7 @@ export default class SingleStateGraph extends Component {
                             />
                         <VictoryLine
                             style={{data: {stroke:"tomato"}}}
-                            data={this.props.data}
+                            data={this.props.timeSeriesData}
                             x="date"
                             y="newCases"
                         />

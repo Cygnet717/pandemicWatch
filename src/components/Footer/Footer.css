@@ -5,11 +5,27 @@
 }
 
 .footerChunk {
-    border: 1px solid black;
-    width: fit-content;
-}
-
-.footerLink {
+    border-bottom: 3px solid black;
+    border-left: 2px solid black;
+    padding: 10px;
+    margin: 5px;
+    width: fit-content;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     color: black;
     text-decoration: none;
 }
+
+@media screen and (hover: hover){
+    .footerChunk:hover {
+        animation: linkHover 1s;
+    }
+    
+    @keyframes linkHover {
+        from {
+            background-color: white;
+        }
+        to {
+            background-color: yellow;
+            transform: scale(1.1)
+        }
+    }
+  }

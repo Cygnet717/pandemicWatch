@@ -1,6 +1,7 @@
 import './CountryVaccPie.css';
 import React, {Component} from 'react';
 import {VictoryPie} from 'victory';
+import Footer from '../Footer/Footer';
 
 export default class CountryVaccPie extends Component {
     constructor(props){
@@ -80,7 +81,7 @@ export default class CountryVaccPie extends Component {
                         >
 
                     </VictoryPie></div>
-                    
+                    <Footer/>
                 </div>
             )
         }

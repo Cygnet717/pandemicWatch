@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SingleStateGraph from './SingleStateGraph/SingleStateGraph.js';
 import { v4 as uuidv4 } from 'uuid';
+import Footer from '../Footer/Footer';
 import './SingleState.css';
 
 export default class SingleState extends Component {
@@ -84,6 +85,7 @@ export default class SingleState extends Component {
                             isLoaded={isLoaded}
                         />: <div></div>}
                 </div>
+                <Footer/>
             </div>
         )
     }

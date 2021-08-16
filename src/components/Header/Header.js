@@ -4,6 +4,7 @@ import './Header.css';
 
 export default class Header extends Component {
     render() {
+      console.log('rendered')
         return <>
         <nav>
           <Link className="headerLink" to="/pandemicwatch">Home</Link>

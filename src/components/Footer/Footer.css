@@ -1,0 +1,15 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid yellow;
+}
+
+.footerChunk {
+    border: 1px solid black;
+    width: fit-content;
+}
+
+.footerLink {
+    color: black;
+    text-decoration: none;
+}

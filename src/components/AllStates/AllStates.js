@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './AllStates.css';
+import Footer from '../Footer/Footer';
 
 export default class AllStates extends Component{
     constructor(props) {
@@ -39,30 +40,33 @@ export default class AllStates extends Component{
             return <div className="loading"> Loading ...</div>;
         } else {
             return(
-                <table className='allStatesTable'>
-                    <thead>
-                        <tr>
-                            <th>State</th>
-                            <th>Population</th>
-                            <th>New Cases</th>
-                            <th>Vaccines Initiated</th>
-                            <th>% of Population Vaccinated</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {stateData.map(st => {
-                            return(
-                                <tr key={st.locationId}>
-                                    <td>{st.state}</td>
-                                    <td>{st.population.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</td>
-                                    <td>{st.actuals.newCases.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</td>
-                                    <td>{typeof st.actuals.vaccinationsInitiated === 'number'? st.actuals.vaccinationsInitiated.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","): 'No Data'}</td>
-                                    <td>{Math.round((st.actuals.vaccinationsInitiated/st.population)*100)+'%'}</td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                <div>
+                    <table className='allStatesTable'>
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Population</th>
+                                <th>New Cases</th>
+                                <th>Vaccines Initiated</th>
+                                <th>% of Population Vaccinated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {stateData.map(st => {
+                                return(
+                                    <tr key={st.locationId}>
+                                        <td>{st.state}</td>
+                                        <td>{st.population.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</td>
+                                        <td>{st.actuals.newCases.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</td>
+                                        <td>{typeof st.actuals.vaccinationsInitiated === 'number'? st.actuals.vaccinationsInitiated.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","): 'No Data'}</td>
+                                        <td>{Math.round((st.actuals.vaccinationsInitiated/st.population)*100)+'%'}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    <Footer/>
+                </div>
             )
         }
     }

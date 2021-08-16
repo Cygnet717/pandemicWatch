@@ -75,7 +75,7 @@ export default class SingleState extends Component {
                     </div>
                     <input className='submitBtn' type='submit' value='Gather Data'/>
                 </form>
-                <div>
+                <div className='graphBox'>
                     {showStateGraph? 
                         <SingleStateGraph 
                             timeSeriesData={timeSeriesData} 

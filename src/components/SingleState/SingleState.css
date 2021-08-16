@@ -27,6 +27,10 @@
     margin-right: auto;
 }
 
+.graphBox {
+    min-height: 58vh;
+}
+
 @media screen and (hover: hover) {
     .description{
         width: 60%;

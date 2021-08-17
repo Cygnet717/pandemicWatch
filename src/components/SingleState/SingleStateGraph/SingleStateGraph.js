@@ -18,8 +18,6 @@ export default class SingleStateGraph extends Component {
     }
 
     render() {
-    console.log(this.props)
-
         if(this.state.error){
             return <div>Error: {this.state.error.message}</div>;
         } else if (!this.state.isLoaded){
